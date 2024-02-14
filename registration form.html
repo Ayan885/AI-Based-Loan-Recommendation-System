@@ -15,22 +15,21 @@
             height: 100vh;
         }
 
-        form {
-            background-color: #ffffff;
+        #registrationBox {
+            background-color: #000000;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
+            color: #f6f9f9;
         }
 
         input {
-            width: 100%;
+            width: 300px;
             padding: 8px;
             margin-bottom: 12px;
             border: 1px solid #ccc;
@@ -53,32 +52,66 @@
         }
     </style>
 </head>
-<body style="background-color:  rgb(122, 174, 145);">
+<body style="background-color: rgb(108, 197, 167);">
+    <img src="/IMAGES/business.svg" height="600">
 
-    <form id="registrationForm">
-        <label for="email"><b>EMAIL</b>:</label>
-        <input type="email" id="email" name="email" required>
+    <div id="registrationBox">
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <label for="email"><b>EMAIL</b>:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="phone"><b>NUMBER</b>:</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-       
+            <label for="phone"><b>NUMBER</b>:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
 
-        <label for="pan"><b>PAN CARD</b></label>
-        <input type="text" id="pan" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]" required>
-       
+            <label for="pan"><b>PAN CARD</b></label>
+            <input type="text" id="pan" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]" required>
 
-        <button type="button" onclick="sendOTP()">Get OTP</button>
-        <label></label>
-        <label for="otp"><b>ENTER OTP</b></label>
-        <input type="text" id="otp" name="otp" required>
+            <button type="button" onclick="sendOTP()">Get OTP</button>
+            <label></label>
+            <label for="otp"><b>ENTER OTP</b></label>
+            <input type="text" id="otp" name="otp" required>
 
-        <button type="submit"><b>Register</b></button>
-    </form>
+            <button type="submit"><b>Register</b></button>
+        </form>
+    </div>
+    
 
     <script>
         function sendOTP() {
-            // Simulate sending OTP logic (replace this with actual server-side logic)
-            alert("OTP sent to your registered email/phone!");
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var pan = document.getElementById("pan").value;
+
+            // Check if any field is empty
+            if (email === "" || phone === "" || pan === "") {
+                alert("Please fill in all details before getting OTP.");
+            } else {
+                // Generate a random 4-digit OTP
+                var randomOTP = Math.floor(1000 + Math.random() * 9000);
+
+                // Display the random OTP in a pop-up
+                alert("Your 4-digit OTP: " + randomOTP);
+
+                // You can also assign the OTP to the input field if needed
+                document.getElementById("otp").value = randomOTP;
+            }
+        }
+
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var pan = document.getElementById("pan").value;
+            var otp = document.getElementById("otp").value;
+
+            // Check if any field is empty
+            if (email === "" || phone === "" || pan === "" || otp === "") {
+                alert("Please fill in all details before submitting.");
+                return false;
+            }
+
+            // Additional validation logic if needed
+
+            return true;
         }
     </script>
 
