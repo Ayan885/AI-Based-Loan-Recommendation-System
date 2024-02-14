@@ -109,9 +109,22 @@
                 return false;
             }
 
-            // Additional validation logic if needed
+            // Check if phone number is in correct format
+            if (!/^[0-9]{10}$/.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
 
-            return true;
+            // Check if PAN card is in correct format
+            if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(pan)) {
+                alert("Please enter a valid PAN card number.");
+                return false;
+            }
+
+             // Additional validation logic if needed
+
+             // Redirect to a new URL
+           
         }
     </script>
 
