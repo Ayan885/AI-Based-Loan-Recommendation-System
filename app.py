@@ -8,3 +8,7 @@ model=pickle.load(open('model.pkl','rb'))
 @app.route("/")
 def hello_world():
     return render_template('result.html')
+
+
+app.route('/predict', methods = ['POST', 'GET'])
+def predict():
