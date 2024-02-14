@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Loan Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=Akshar' rel='stylesheet'>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Akshar';font-size: 22px;
             background-color: #f1f1f1;
             margin: 0;
             padding: 0;
@@ -20,6 +21,7 @@
         h1 {
             text-align: center;
             color: #333;
+            padding: 20px;
         }
         form {
             margin-top: 20px;
@@ -59,6 +61,12 @@
             border: 1px solid #f99;
             border-radius: 3px;
         }
+        .hidden {
+            visibility: hidden;
+            overflow: hidden;
+            width: 0px;
+            height: 0px;
+        }
     </style>
 </head>
 <body>
@@ -74,36 +82,8 @@
             <input type="submit" value="Calculate">
         </form>
         <div id="result"></div>
-        <div id="suggestion"></div>
     </div>
 
-    <script>
-        document.getElementById('loan-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            var amount = parseFloat(document.getElementById('amount').value);
-            var interest = parseFloat(document.getElementById('interest').value) / 100;
-            var years = parseFloat(document.getElementById('years').value);
-
-            var monthlyInterest = interest / 12;
-            var months = years * 12;
-            var monthlyPayment = (amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -months));
-
-            var resultElement = document.getElementById('result');
-            resultElement.innerHTML = '';
-            resultElement.innerHTML += '<h3>Loan Summary</h3>';
-            resultElement.innerHTML += '<p>Loan Amount: ₹' + amount.toFixed(2) + '</p>';
-            resultElement.innerHTML += '<p>Interest Rate: ' + (interest * 100).toFixed(2) + '%</p>';
-            resultElement.innerHTML += '<p>Repayment Period: ' + years + ' years</p>';
-            resultElement.innerHTML += '<h4>Monthly Payment</h4>';
-            resultElement.innerHTML += '<p>₹' + monthlyPayment.toFixed(2) + '</p>';
-
-            var suggestionElement = document.getElementById('suggestion');
-            suggestionElement.innerHTML = '';
-            if (monthlyPayment > amount * 0.5) {
-                suggestionElement.innerHTML = '<p>This loan may be too burdensome. Consider a lower loan amount or longer repayment period.</p>';
-            }
-        });
-    </script>
+    <script src="loan.js"></script>
 </body>
 </html>
