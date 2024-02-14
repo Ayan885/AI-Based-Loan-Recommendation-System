@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salary and CIBIL Score</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.image-container {
+            float: left;
+            width: 50%; /* Adjust width to fit three images in a row */
+            box-sizing: border-box;
+            padding: 20px; /* Increase padding for better spacing */
+            text-align: right;
+        }
+
+.container {
+    background-color: #120101;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(43, 0, 255, 0.1);
+    width: 300px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #faf7f7;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+</style>
+</head>
+<body style="background-color: rgb(122, 174, 145);">
+
+<div class="container">
+    <label for="salary"><b>Salary:</b></label>
+    <input type="number" id="salary" name="salary" placeholder="Enter your salary" required>
+
+    <label for="cibil"><b>CIBIL Score:</b></label>
+    <input type="number" id="cibil" name="cibil" placeholder="Enter your CIBIL score" required>
+
+    <button type="submit"><b>Submit</b></button>
+</div>
+<div class="image-container">
+    <img src="IMAGES/business2.svg" >
+    
+</div>
+</body>
+</html>
